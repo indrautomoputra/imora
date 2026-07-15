@@ -33,7 +33,7 @@ function renderStats() {
   el.innerHTML = profile.stats.map((s, i) => {
     const label = tr(`stats.${i}`) || s.label;
     return `<div data-aos="fade-up">
-      <div class="text-4xl md:text-5xl font-extrabold text-accent mb-2">${s.value}</div>
+      <div class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-accent mb-2">${s.value}</div>
       <div class="text-gray-400 text-sm uppercase tracking-wider">${label}</div>
     </div>`;
   }).join("");
