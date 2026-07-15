@@ -11,7 +11,7 @@ const en = {
   },
   keahlianSub: "Tools, platforms, and competencies in humanitarian data management and GIS.",
   sertifikatSub: "National & international trainings and certifications.",
-  portofolioSub: "4+ products - dashboard, infographics, mapping, and web apps.",
+  portofolioSub: "5+ products - dashboard, infographics, mapping, web apps, and e-learning.",
   kontakSub: "For collaboration, further information, or humanitarian data needs.",
   stats: ["Years Experience", "Assignments", "Trainings", "Products"],
   tentangTitle: "About Me",
@@ -40,6 +40,7 @@ const en = {
     { name: "PMI South Sulawesi Training Dashboard", desc: "Google Sites-based dashboard monitoring KSR PMI training across Selayar Islands." },
     { name: "South Sulawesi Drought Service Infographic", desc: "Infographic of South Sulawesi drought operation - coverage, personnel, and aid." },
     { name: "PMI Branch Mapping Across Indonesia", desc: "OpenStreetMap contribution mapping PMI branches throughout Indonesia." },
+    { name: "E-Learning IM Cell PMI", desc: "Information Management learning platform for PMI IM Cell team. Practical, field-ready materials." },
     { name: "Simple Score", desc: "Web-based scoring & loan management app (React, Node.js, PostgreSQL)." }
   ],
   selengkapnya: "Learn More"

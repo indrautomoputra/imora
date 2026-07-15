@@ -61,9 +61,9 @@ function renderSkills() {
         ${items.map((s, i) => `
            <div class="group bg-[var(--card-bg)] border border-gray-700 rounded-xl p-4 sm:p-6 shadow-md transition-all duration-300 transform hover:scale-105 hover:border-accent hover:shadow-[0_0_20px_#e11d4844] w-full text-center"
                 data-aos="zoom-in" data-aos-delay="${i * 80}">
-            <i class="fas ${s.icon} text-2xl sm:text-3xl text-accent mb-3 transition-transform group-hover:scale-110 inline-block"></i>
-            <p class="font-semibold text-text text-sm">${s.name}</p>
-          </div>
+             <i class="fas ${s.icon} text-2xl sm:text-3xl text-accent mb-3 transition-transform group-hover:scale-110 inline-block"></i>
+             <p class="font-semibold text-text text-sm">${s.name}</p>
+           </div>
         `).join('')}
       </div>
     </div>`;

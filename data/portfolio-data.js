@@ -15,7 +15,7 @@
     { label: "Tahun Pengalaman", value: "10+" },
     { label: "Penugasan", value: "31+" },
     { label: "Pelatihan", value: "30+" },
-    { label: "Produk", value: "4+" }
+    { label: "Produk", value: "5+" }
   ],
   skills: {
     "GIS & Pemetaan": [
@@ -58,6 +58,7 @@ const products = [
   { name: "Dashboard Pelatihan PMI Provinsi Sulsel", year: 2023, url: "https://sites.google.com/view/diklatksrpmikepselayar/beranda", type: "dashboard", desc: "Dashboard monitoring pelatihan KSR PMI se-Kepulauan Selayar berbasis Google Sites." },
   { name: "Infografis Layanan Kekeringan Sulsel", year: 2023, url: "https://bit.ly/ops-kekeringan-sulsel2023", type: "infografis", desc: "Infografis operasi kekeringan Sulawesi Selatan - cakupan, personel, dan bantuan." },
   { name: "Pemetaan Markas PMI se Indonesia", year: 2024, url: "https://www.openstreetmap.org/changeset/159941065#map=10/1.0956/124.7005", type: "peta", desc: "Kontribusi pemetaan markas PMI di seluruh Indonesia melalui OpenStreetMap." },
+  { name: "E-Learning IM Cell PMI", year: 2025, url: "https://indrautomoputra.github.io/elearning-im/", type: "aplikasi", desc: "Platform pembelajaran Information Management untuk Tim IM Cell PMI. Praktik langsung, berguna di posko." },
   { name: "Simple Score", year: 2025, url: "https://simple-score.web.id", type: "aplikasi", desc: "Aplikasi skoring & pengaturan peminjaman berbasis web (React, Node.js, PostgreSQL)." }
 ];
 
