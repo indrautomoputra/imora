@@ -32,8 +32,8 @@
         <a href="#kontak" class="text-text hover:text-accent transition whitespace-nowrap"><span data-i18n="nav.4">Kontak</span></a>
       </div>
       <div class="flex items-center gap-2">
-        <button onclick="toggleTheme()" class="text-xs sm:text-sm p-1.5 rounded-full border border-gray-600 text-gray-300 hover:border-accent hover:text-accent transition shrink-0" id="theme-toggle" aria-label="Toggle theme"><i class="fas fa-moon"></i></button>
-        <button onclick="switchLang()" class="text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-full border border-gray-600 text-gray-300 hover:border-accent hover:text-accent transition shrink-0" id="lang-toggle">EN</button>
+        <button onclick="toggleTheme()" class="flex items-center gap-2 text-xs sm:text-sm px-3 sm:px-4 py-1.5 rounded-full border border-gray-600 text-gray-300 hover:border-accent hover:text-accent transition shrink-0" id="theme-toggle" aria-label="Toggle theme"><i class="fas fa-moon"></i><span class="text-[10px] sm:text-xs" id="theme-label">Gelap</span></button>
+        <button onclick="switchLang()" class="flex items-center gap-2 text-xs sm:text-sm px-3 sm:px-4 py-1.5 rounded-full border border-gray-600 text-gray-300 hover:border-accent hover:text-accent transition shrink-0" id="lang-toggle" aria-label="Switch language"><i class="fas fa-globe"></i><span>EN</span></button>
         <button onclick="toggleMobileMenu()" class="md:hidden focus:outline-none p-1.5" aria-label="Toggle navigation menu">
           <svg id="hamburger-icon" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-text" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"/></svg>
           <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-text hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
