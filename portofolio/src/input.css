@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-bg: #111111;
+  --color-text: #ffffff;
+  --color-accent: #e11d48;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --nav-bg: #111111;
+  --section-alt: #0a0a0a;
+  --footer-bg: #0d0d0d;
+  --card-bg: #1a1a1a;
+  --grad-from: #0f0f0f;
+  --grad-via: #111111;
+  --grad-to: #1a1a1a;
+  --card-grad-from: #1f1f1f;
+  --card-grad-to: #2b2b2b;
+  --tag-bg: rgba(255,255,255,0.1);
+  --hover-bg: rgba(255,255,255,0.05);
+}
+
+[data-theme="light"] {
+  --color-bg: #f5f5f5;
+  --color-text: #1a1a1a;
+  --color-accent: #e11d48;
+  --gray-300: #444444;
+  --gray-400: #666666;
+  --gray-500: #999999;
+  --gray-600: #9ca3af;
+  --gray-700: #d0d0d0;
+  --gray-800: #d0d0d0;
+  --nav-bg: #f5f5f5;
+  --section-alt: #f5f5f5;
+  --footer-bg: #f5f5f5;
+  --card-bg: #ffffff;
+  --grad-from: #f5f5f5;
+  --grad-via: #f5f5f5;
+  --grad-to: #ffffff;
+  --card-grad-from: #ffffff;
+  --card-grad-to: #fafafa;
+  --tag-bg: rgba(0,0,0,0.06);
+  --hover-bg: rgba(0,0,0,0.04);
+}
