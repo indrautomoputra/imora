@@ -129,8 +129,9 @@ function applyLang() {
     }
   });
 
-  // Toggle button
-  document.getElementById("lang-toggle").textContent = currentLang === "id" ? "EN" : "ID";
+  // Toggle buttons
+  document.querySelector("#lang-toggle span").textContent = currentLang === "id" ? "EN" : "ID";
+  updateThemeLabel();
 
   // Re-render dynamic sections
   renderStats();
@@ -153,6 +154,14 @@ function toggleTheme() {
   localStorage.setItem("theme", theme);
   const icon = document.querySelector("#theme-toggle i");
   icon.className = theme === "light" ? "fas fa-sun" : "fas fa-moon";
+  updateThemeLabel();
+}
+
+function updateThemeLabel() {
+  const theme = document.documentElement.getAttribute("data-theme") || "dark";
+  const label = document.getElementById("theme-label");
+  if (currentLang === "id") label.textContent = theme === "light" ? "Terang" : "Gelap";
+  else label.textContent = theme === "light" ? "Light" : "Dark";
 }
 
 function toggleMobileMenu() {
@@ -178,6 +187,7 @@ function applyTheme() {
   document.documentElement.setAttribute("data-theme", theme);
   const icon = document.querySelector("#theme-toggle i");
   if (icon) icon.className = theme === "light" ? "fas fa-sun" : "fas fa-moon";
+  updateThemeLabel();
 }
 
 document.addEventListener("DOMContentLoaded", function () {
