@@ -1,4 +1,4 @@
-# IMora — Indra Utomo Putra
+# IMora - Indra Utomo Putra
 
 Portfolio website for Data & Information Management, GIS, and Emergency Response.
 
@@ -11,9 +11,8 @@ Portfolio website for Data & Information Management, GIS, and Emergency Response
 ## Dev
 
 ```bash
-cd portofolio
 npm install
 npm run build    # rebuild tailwind.css from src/input.css
 ```
 
-Open `portofolio/index.html` in browser (no dev server needed).
+Open `index.html` in browser (no dev server needed).
