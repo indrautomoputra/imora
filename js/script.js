@@ -87,8 +87,12 @@ function renderProducts() {
     const name = tr(`products.${i}.name`) || p.name;
     const desc = tr(`products.${i}.desc`) || p.desc;
     const ic = typeIcon(p.type);
-    return `<a href="${p.url}" target="_blank" rel="noopener noreferrer"
-        class="group bg-[var(--card-bg)] border border-gray-700 rounded-xl p-6 transition-all hover:border-accent hover:shadow-xl hover:-translate-y-1"
+    const linksHtml = p.links
+      ? `<ul class="space-y-1.5 mb-3">${p.links.map(l =>
+          `<li><a href="${l.url}" target="_blank" rel="noopener noreferrer" class="text-xs text-accent hover:underline block truncate">${l.name}</a></li>`
+        ).join('')}</ul>`
+      : '';
+    return `<div class="group bg-[var(--card-bg)] border border-gray-700 rounded-xl p-6 transition-all hover:border-accent hover:shadow-xl hover:-translate-y-1"
         data-aos="zoom-in-up" data-aos-delay="${i * 80}">
         <div class="flex items-center gap-3 mb-3">
           <div class="w-10 h-10 rounded-lg flex items-center justify-center text-lg ${ic.bg}">
@@ -96,13 +100,14 @@ function renderProducts() {
           </div>
           <span class="text-xs text-gray-500 font-mono">${p.year}</span>
         </div>
-        <h3 class="text-base font-semibold mb-1 group-hover:text-accent transition-colors">${name}</h3>
+        <h3 class="text-base font-semibold mb-1">${name}</h3>
         <p class="text-xs text-gray-400 mb-3 leading-relaxed">${desc}</p>
+        ${linksHtml}
         <div class="flex items-center justify-between">
           <span class="text-xs uppercase tracking-wider text-gray-500">${p.type}</span>
-          <span class="text-accent text-sm group-hover:translate-x-1 transition-transform"><i class="fas fa-arrow-right"></i></span>
+          ${p.url !== '#' ? `<a href="${p.url}" target="_blank" rel="noopener noreferrer" class="text-accent text-sm hover:translate-x-1 transition-transform"><i class="fas fa-external-link-alt"></i></a>` : ''}
         </div>
-      </a>`;
+      </div>`;
   }).join('');
   AOS.refresh();
 }

@@ -55,7 +55,14 @@ const certs = [
 ];
 
 const products = [
-  { name: "Dashboard Pelatihan PMI Provinsi Sulsel", year: 2023, url: "https://sites.google.com/view/diklatksrpmikepselayar/beranda", type: "dashboard", desc: "Dashboard monitoring pelatihan KSR PMI se-Kepulauan Selayar berbasis Google Sites." },
+  { name: "Dashboard Pelatihan PMI Provinsi Sulsel", year: 2023, url: "#", type: "dashboard", desc: "Dashboard monitoring pelatihan KSR PMI berbasis Google Sites.", links: [
+    { name: "Diklat KSR Jeneponto", url: "https://sites.google.com/view/diklat-ksr-pmi-jeneponto/peserta" },
+    { name: "Diklat KSR Palopo", url: "https://sites.google.com/view/diklatksrpmipalopo2023/peserta" },
+    { name: "Diklat KSR Selayar", url: "https://sites.google.com/view/diklatksrpmikepselayar/beranda" },
+    { name: "First Aid Training", url: "https://sites.google.com/view/first-aid-training-basic-lvl/beranda" },
+    { name: "Pelatihan Operator WASH", url: "https://sites.google.com/view/pelatihan-asesmen-pmi/beranda" },
+    { name: "Training of Trainer (General)", url: "https://sites.google.com/view/tot-general-sulsel2024/beranda" }
+  ] },
   { name: "Infografis Layanan Kekeringan Sulsel", year: 2023, url: "https://bit.ly/ops-kekeringan-sulsel2023", type: "infografis", desc: "Infografis operasi kekeringan Sulawesi Selatan - cakupan, personel, dan bantuan." },
   { name: "Pemetaan Markas PMI se Indonesia", year: 2024, url: "https://app.powerbi.com/view?r=eyJrIjoiNmRmNThjOWItM2E2My00NzIwLWE0NTAtNzEzYmFiN2UzOWQ0IiwidCI6IjFlNGUwNWViLTA1MDYtNDlmYy1iNjkzLTFhZGYwZTk1ZDE2MiIsImMiOjEwfQ%3D%3D", type: "dashboard", desc: "Kontribusi pemetaan markas PMI di seluruh Indonesia melalui OpenStreetMap." },
   { name: "E-Learning IM Cell PMI", year: 2025, url: "https://indrautomoputra.github.io/elearning-im/", type: "aplikasi", desc: "Platform pembelajaran Information Management untuk Tim IM Cell PMI. Praktik langsung, berguna di posko." },
