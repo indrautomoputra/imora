@@ -1,10 +1,8 @@
-// Product type -> icon + pop color (full class strings so Tailwind generates them)
+// Product type -> icon + pop color (full class strings so Tailwind generates them).
+// A new type in data/portfolio-data.js needs an entry here and in en.types, or it falls back to a plain file icon.
 const TYPES = {
   infografis: { icon: "fas fa-chart-pie", bg: "bg-pop-green" },
-  peta: { icon: "fas fa-map", bg: "bg-pop-blue" },
-  laporan: { icon: "fas fa-file-alt", bg: "bg-pop-yellow" },
   dashboard: { icon: "fas fa-tachometer-alt", bg: "bg-pop-purple" },
-  desain: { icon: "fas fa-paint-brush", bg: "bg-pop-pink" },
   aplikasi: { icon: "fas fa-code", bg: "bg-pop-orange" }
 };
 const POPS = ["bg-pop-yellow", "bg-pop-blue", "bg-pop-green", "bg-pop-pink", "bg-pop-purple", "bg-pop-orange"];

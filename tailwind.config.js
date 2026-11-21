@@ -4,7 +4,6 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        bg: "var(--bg)",
         fg: "var(--fg)",
         "muted-fg": "var(--muted-fg)",
         ink: "var(--ink)",

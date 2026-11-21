@@ -52,14 +52,10 @@ const en = {
   ],
   types: {
     infografis: "infographic",
-    peta: "map",
-    laporan: "report",
-    desain: "design",
     aplikasi: "app"
   },
   trainingSites: "Training sites",
-  lihat: "View project",
-  selengkapnya: "Learn More"
+  lihat: "View project"
 };
 
 let currentLang = "id";
