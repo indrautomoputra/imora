@@ -1,21 +1,15 @@
 ﻿const profile = {
-  name: "Indra Utomo Putra",
-  initials: "IUP",
-  title: "Data & Information Management | GIS | Tanggap Darurat",
-  titleEn: "Data & Information Management | GIS | Emergency Response",
-  tagline: "Data & Information Management | GIS | Tanggap Darurat",
-  taglineEn: "Data & Information Management | GIS | Emergency Response",
-  about: [
-    "Bergabung dengan PMI sejak 2015, berpengalaman dalam Information Management (IM), penanganan situasi darurat bencana, dan pengelolaan data informasi kemanusiaan.",
-    "Telah terlibat dalam lebih dari 30 penugasan, dari respon gempa, tsunami, banjir, kekeringan, hingga pandemi, di berbagai posisi seperti Koordinator Posko, Relief Distribusi, hingga Petugas IT. Berfokus pada Information Management (IM) dalam setiap operasi, mengelola, menyajikan, dan mendistribusikan data kemanusiaan yang akurat dan tepat waktu untuk mendukung pengambilan keputusan. Juga menguasai GIS, serta pengembangan dashboard dan visualisasi data."
-  ],
-  email: "indrautomoputra@gmail.com",
-  location: "Makassar, Sulawesi Selatan",
   stats: [
     { label: "Tahun Pengalaman", value: "10+" },
-    { label: "Penugasan", value: "31+" },
+    { label: "Penugasan", value: "34+" },
     { label: "Pelatihan", value: "30+" },
-    { label: "Produk", value: "5+" }
+    { label: "Produk", value: "6+" }
+  ],
+  // Quick facts in the About section; en.facts translates them by index
+  facts: [
+    { title: "Pengalaman Respon", items: ["Gempa", "Tsunami", "Banjir", "Kekeringan", "Pandemi"] },
+    { title: "Peran di Lapangan", items: ["Koordinator Posko", "Relief Distribusi", "Petugas IT"] },
+    { title: "Keahlian Pendukung", items: ["GIS", "Dashboard", "Visualisasi Data"] }
   ],
   skills: {
     "GIS & Pemetaan": [
@@ -34,8 +28,8 @@
       { name: "Information Management", icon: "fa-database" },
       { name: "Report Writing", icon: "fa-file-alt" }
     ],
-"Web Development": [
-      { name: "React.js", icon: "fa-react" },
+    "Web Development": [
+      { name: "React.js", icon: "fab fa-react" },
       { name: "Node.js & Express", icon: "fa-server" },
       { name: "Tailwind CSS", icon: "fa-paint-brush" },
       { name: "PostgreSQL & Prisma", icon: "fa-layer-group" }
@@ -55,6 +49,8 @@ const certs = [
 ];
 
 const products = [
+  // Figures are a snapshot of the live dashboard (Nov 2026), rounded down
+  { name: "Dashboard Operasi Kekeringan PMI 2026", year: 2026, url: "https://www.im-pmisulsel.site/", type: "dashboard", desc: "Dashboard interaktif operasi tanggap darurat kekeringan PMI: 8.000+ kegiatan, 43 juta+ liter air bersih, dan 2,5 juta+ penerima manfaat di 126 kabupaten/kota." },
   { name: "Dashboard Pelatihan PMI Provinsi Sulsel", year: 2023, url: "#", type: "dashboard", desc: "Dashboard monitoring pelatihan KSR PMI berbasis Google Sites.", links: [
     { name: "Diklat KSR Jeneponto", url: "https://sites.google.com/view/diklat-ksr-pmi-jeneponto/peserta" },
     { name: "Diklat KSR Palopo", url: "https://sites.google.com/view/diklatksrpmipalopo2023/peserta" },
@@ -68,4 +64,3 @@ const products = [
   { name: "E-Learning IM Cell PMI", year: 2025, url: "https://indrautomoputra.github.io/elearning-im/", type: "aplikasi", desc: "Platform pembelajaran Information Management untuk Tim IM Cell PMI. Praktik langsung, berguna di posko." },
   { name: "Simple Score", year: 2025, url: "https://simple-score.web.id", type: "aplikasi", desc: "Aplikasi skoring & pengaturan peminjaman berbasis web (React, Node.js, PostgreSQL)." }
 ];
-

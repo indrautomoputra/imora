@@ -2,11 +2,10 @@
   "name": "portofolio",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "build": "npx tailwindcss -i ./src/input.css -o ./css/tailwind.css --minify",
     "watch": "npx tailwindcss -i ./src/input.css -o ./css/tailwind.css --watch",
-    "start": "npx serve . -l $PORT"
+    "start": "npx serve ."
   },
   "keywords": [],
   "author": "",

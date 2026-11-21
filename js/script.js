@@ -1,14 +1,16 @@
-function typeIcon(type) {
-  const icons = {
-    infografis:  { icon: 'fas fa-chart-pie',              bg: 'bg-green-500/20 text-green-400' },
-    peta:        { icon: 'fas fa-map',                    bg: 'bg-blue-500/20 text-blue-400' },
-    laporan:     { icon: 'fas fa-file-alt',               bg: 'bg-yellow-500/20 text-yellow-400' },
-    dashboard:   { icon: 'fas fa-tachometer-alt',         bg: 'bg-purple-500/20 text-purple-400' },
-    desain:      { icon: 'fas fa-paint-brush',            bg: 'bg-pink-500/20 text-pink-400' },
-    aplikasi:    { icon: 'fas fa-code',                   bg: 'bg-cyan-500/20 text-cyan-400' }
-  };
-  return icons[type] || { icon: 'fas fa-file', bg: 'bg-gray-500/20 text-gray-400' };
-}
+// Product type -> icon + pop color (full class strings so Tailwind generates them)
+const TYPES = {
+  infografis: { icon: "fas fa-chart-pie", bg: "bg-pop-green" },
+  peta: { icon: "fas fa-map", bg: "bg-pop-blue" },
+  laporan: { icon: "fas fa-file-alt", bg: "bg-pop-yellow" },
+  dashboard: { icon: "fas fa-tachometer-alt", bg: "bg-pop-purple" },
+  desain: { icon: "fas fa-paint-brush", bg: "bg-pop-pink" },
+  aplikasi: { icon: "fas fa-code", bg: "bg-pop-orange" }
+};
+const POPS = ["bg-pop-yellow", "bg-pop-blue", "bg-pop-green", "bg-pop-pink", "bg-pop-purple", "bg-pop-orange"];
+
+// data icons are bare names ("fa-map") unless they carry their own style prefix ("fab fa-react")
+const iconClass = icon => (icon.startsWith("fa-") ? "fas " : "") + icon;
 
 function tr(key) {
   if (currentLang === "id") return null;
@@ -32,43 +34,40 @@ function renderStats() {
   if (!el) return;
   el.innerHTML = profile.stats.map((s, i) => {
     const label = tr(`stats.${i}`) || s.label;
-    return `<div data-aos="fade-up">
-      <div class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-accent mb-2">${s.value}</div>
-      <div class="text-gray-400 text-sm uppercase tracking-wider">${label}</div>
+    const [, num, suffix] = s.value.match(/^(\d+)(.*)$/) || [];
+    const value = num ? `<span data-count="${num}" data-suffix="${suffix}">${s.value}</span>` : s.value;
+    return `<div class="nb-card ${POPS[i % POPS.length]} text-on-pop p-4 sm:p-6">
+      <p class="font-display text-3xl sm:text-5xl leading-none mb-2">${value}</p>
+      <p class="text-xs sm:text-sm font-bold uppercase tracking-wider">${label}</p>
     </div>`;
   }).join("");
-  AOS.refresh();
 }
 
-function renderSkillTags() {
-  const el = document.querySelector("#skills-tags-container > div");
+function renderFacts() {
+  const el = document.getElementById("facts");
   if (!el) return;
-  const all = Object.values(profile.skills).flat();
-  el.innerHTML = all.map(s =>
-    `<span class="bg-[var(--tag-bg)] text-text px-4 py-1 rounded-full text-sm border border-gray-700">${s.name}</span>`
-  ).join("");
+  el.innerHTML = profile.facts.map((f, i) => {
+    const t = tr(`facts.${i}`) || f;
+    return `<div class="nb-card p-5 sm:p-6">
+      <h3 class="inline-block ${POPS[(i + 1) % POPS.length]} text-on-pop border-2 border-ink px-2 py-0.5 text-sm font-bold uppercase tracking-wider mb-4">${t.title}</h3>
+      <ul class="flex flex-wrap gap-2">${t.items.map(x => `<li class="nb-tag">${x}</li>`).join("")}</ul>
+    </div>`;
+  }).join("");
 }
 
 function renderSkills() {
   const el = document.getElementById("skills-groups");
   if (!el) return;
-  const groups = Object.entries(profile.skills);
-  el.innerHTML = groups.map(([groupName, items], gi) => {
+  el.innerHTML = Object.entries(profile.skills).map(([groupName, items], gi) => {
     const label = tr(`skillGroups.${groupName}`) || groupName;
-    return `<div data-aos="fade-up" data-aos-delay="${gi * 100}">
-      <h3 class="text-xl sm:text-2xl font-bold text-accent mb-6 text-center">${label}</h3>
-      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 justify-items-center">
-        ${items.map((s, i) => `
-           <div class="group bg-[var(--card-bg)] border border-gray-700 rounded-xl p-4 sm:p-6 shadow-md transition-all duration-300 transform hover:scale-105 hover:border-accent hover:shadow-[0_0_20px_#e11d4844] w-full text-center"
-                data-aos="zoom-in" data-aos-delay="${i * 80}">
-             <i class="fas ${s.icon} text-2xl sm:text-3xl text-accent mb-3 transition-transform group-hover:scale-110 inline-block"></i>
-             <p class="font-semibold text-text text-sm">${s.name}</p>
-           </div>
-        `).join('')}
-      </div>
+    return `<div class="nb-card flex flex-col h-full">
+      <h3 class="${POPS[gi % POPS.length]} text-on-pop border-b-[3px] border-ink px-5 py-3 font-display text-lg">${label}</h3>
+      <ul class="p-5 grid grid-cols-1 sm:grid-cols-2 gap-3">
+        ${items.map(s => `<li class="flex items-center gap-3 font-semibold">
+          <span class="w-9 h-9 shrink-0 flex items-center justify-center bg-accent text-white border-2 border-ink" aria-hidden="true"><i class="${iconClass(s.icon)} text-sm"></i></span>${s.name}</li>`).join("")}
+      </ul>
     </div>`;
-  }).join('');
-  AOS.refresh();
+  }).join("");
 }
 
 function renderCerts() {
@@ -76,7 +75,8 @@ function renderCerts() {
   if (!el) return;
   const items = currentLang === "en" ? (en.certs || certs) : certs;
   el.innerHTML = items.map(c =>
-    `<span class="bg-[var(--card-bg)] border border-gray-700 text-gray-300 px-5 py-2.5 rounded-full text-sm hover:border-accent transition-all">${c}</span>`
+    `<li class="nb-card !shadow-[4px_4px_0_0_var(--ink)] flex items-start gap-3 px-4 py-3 font-medium">
+      <i class="fas fa-award text-accent mt-1" aria-hidden="true"></i><span>${c}</span></li>`
   ).join("");
 }
 
@@ -86,44 +86,37 @@ function renderProducts() {
   el.innerHTML = products.map((p, i) => {
     const name = tr(`products.${i}.name`) || p.name;
     const desc = tr(`products.${i}.desc`) || p.desc;
-    const ic = typeIcon(p.type);
+    const type = tr(`types.${p.type}`) || p.type;
+    const t = TYPES[p.type] || { icon: "fas fa-file", bg: "bg-pop-yellow" };
     const linksHtml = p.links
-      ? `<ul class="space-y-1.5 mb-3">${p.links.map(l =>
-          `<li><a href="${l.url}" target="_blank" rel="noopener noreferrer" class="text-xs text-accent hover:underline block truncate">${l.name}</a></li>`
-        ).join('')}</ul>`
-      : '';
-    return `<div class="group bg-[var(--card-bg)] border border-gray-700 rounded-xl p-6 transition-all hover:border-accent hover:shadow-xl hover:-translate-y-1"
-        data-aos="zoom-in-up" data-aos-delay="${i * 80}">
-        <div class="flex items-center gap-3 mb-3">
-          <div class="w-10 h-10 rounded-lg flex items-center justify-center text-lg ${ic.bg}">
-            <i class="${ic.icon}"></i>
-          </div>
-          <span class="text-xs text-gray-500 font-mono">${p.year}</span>
-        </div>
-        <h3 class="text-base font-semibold mb-1">${name}</h3>
-        <p class="text-xs text-gray-400 mb-3 leading-relaxed">${desc}</p>
+      ? `<p class="text-xs font-bold uppercase tracking-wider text-muted-fg mb-2">${tr("trainingSites") || "Situs pelatihan"}</p>
+        <ul class="flex flex-wrap gap-2 mb-5">${p.links.map(l =>
+          `<li><a href="${l.url}" target="_blank" rel="noopener noreferrer" class="nb-tag hover:bg-pop-yellow hover:text-on-pop">${l.name}</a></li>`
+        ).join("")}</ul>`
+      : "";
+    const cta = p.url !== "#"
+      ? `<a href="${p.url}" target="_blank" rel="noopener noreferrer" class="nb-btn bg-accent text-white text-sm px-4 py-2 mt-auto self-start">
+          ${tr("lihat") || "Lihat proyek"} <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>`
+      : "";
+    // wrapper div: Motion animates it, so its transform never fights the card's hover lift
+    return `<div><article class="nb-card nb-hover h-full flex flex-col">
+      <div class="${t.bg} text-on-pop border-b-[3px] border-ink px-5 py-3 flex items-center justify-between">
+        <span class="flex items-center gap-2 font-bold text-sm uppercase tracking-wider"><i class="${t.icon}" aria-hidden="true"></i>${type}</span>
+        <span class="font-display text-sm">${p.year}</span>
+      </div>
+      <div class="p-5 flex flex-col flex-1">
+        <h3 class="font-display text-lg leading-snug mb-2">${name}</h3>
+        <p class="text-muted-fg leading-relaxed mb-5">${desc}</p>
         ${linksHtml}
-        <div class="flex items-center justify-between">
-          <span class="text-xs uppercase tracking-wider text-gray-500">${p.type}</span>
-          ${p.url !== '#' ? `<a href="${p.url}" target="_blank" rel="noopener noreferrer" class="text-accent text-sm hover:translate-x-1 transition-transform"><i class="fas fa-external-link-alt"></i></a>` : ''}
-        </div>
-      </div>`;
-  }).join('');
-  AOS.refresh();
-}
-
-function renderAbout() {
-  const ps = document.querySelectorAll("#tentang .max-w-3xl.mx-auto");
-  if (ps.length >= 2) {
-    ps[0].textContent = tr("about.0") || profile.about[0];
-    ps[1].textContent = tr("about.1") || profile.about[1];
-  }
+        ${cta}
+      </div>
+    </article></div>`;
+  }).join("");
 }
 
 function applyLang() {
   document.documentElement.lang = currentLang;
 
-  // Update data-i18n elements
   document.querySelectorAll("[data-i18n]").forEach(el => {
     if (!el.dataset.i18nId) el.dataset.i18nId = el.textContent;
     if (currentLang === "en") {
@@ -134,36 +127,36 @@ function applyLang() {
     }
   });
 
-  // Toggle buttons
   document.querySelector("#lang-toggle span").textContent = currentLang === "id" ? "EN" : "ID";
   updateThemeLabel();
 
-  // Re-render dynamic sections
   renderStats();
-  renderSkillTags();
+  renderFacts();
   renderSkills();
   renderCerts();
   renderProducts();
-  renderAbout();
+}
+
+// localStorage throws when the browser blocks site storage; the toggle still works, it just isn't remembered
+function save(key, value) {
+  try { localStorage.setItem(key, value); } catch (e) {}
 }
 
 function switchLang() {
   currentLang = currentLang === "id" ? "en" : "id";
-  localStorage.setItem("lang", currentLang);
+  save("lang", currentLang);
   applyLang();
 }
 
 function toggleTheme() {
   const theme = document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light";
   document.documentElement.setAttribute("data-theme", theme);
-  localStorage.setItem("theme", theme);
-  const icon = document.querySelector("#theme-toggle i");
-  icon.className = theme === "light" ? "fas fa-sun" : "fas fa-moon";
-  updateThemeLabel();
+  save("theme", theme);
+  applyTheme();
 }
 
 function updateThemeLabel() {
-  const theme = document.documentElement.getAttribute("data-theme") || "dark";
+  const theme = document.documentElement.getAttribute("data-theme") || "light";
   const label = document.getElementById("theme-label");
   if (currentLang === "id") label.textContent = theme === "light" ? "Terang" : "Gelap";
   else label.textContent = theme === "light" ? "Light" : "Dark";
@@ -171,64 +164,78 @@ function updateThemeLabel() {
 
 function toggleMobileMenu() {
   const menu = document.getElementById("mobile-menu");
-  const ham = document.getElementById("hamburger-icon");
-  const close = document.getElementById("close-icon");
   menu.classList.toggle("hidden");
-  ham.classList.toggle("hidden");
-  close.classList.toggle("hidden");
+  document.getElementById("hamburger-icon").classList.toggle("hidden");
+  document.getElementById("close-icon").classList.toggle("hidden");
+  document.getElementById("menu-toggle").setAttribute("aria-expanded", !menu.classList.contains("hidden"));
 }
 
 function closeMobileMenu() {
-  const menu = document.getElementById("mobile-menu");
-  const ham = document.getElementById("hamburger-icon");
-  const close = document.getElementById("close-icon");
-  menu.classList.add("hidden");
-  ham.classList.remove("hidden");
-  close.classList.add("hidden");
+  document.getElementById("mobile-menu").classList.add("hidden");
+  document.getElementById("hamburger-icon").classList.remove("hidden");
+  document.getElementById("close-icon").classList.add("hidden");
+  document.getElementById("menu-toggle").setAttribute("aria-expanded", "false");
 }
 
+// data-theme itself is set by the inline script in <head>, before first paint
 function applyTheme() {
-  const theme = localStorage.getItem("theme") || "dark";
-  document.documentElement.setAttribute("data-theme", theme);
+  const theme = document.documentElement.getAttribute("data-theme") || "light";
   const icon = document.querySelector("#theme-toggle i");
   if (icon) icon.className = theme === "light" ? "fas fa-sun" : "fas fa-moon";
   updateThemeLabel();
 }
 
+// Wrap each word of the hero name in a mask so it can slide up into view
+function splitWords(el) {
+  el.innerHTML = el.textContent.trim().split(/\s+/).map(w =>
+    `<span class="inline-block overflow-hidden align-bottom pb-[0.08em]"><span class="inline-block" data-word>${w}</span></span>`
+  ).join(" ");
+}
+
+// All animation goes through Motion (vendor/motion). Skipped entirely under prefers-reduced-motion;
+// the CSS only hides [data-reveal]/[data-stagger] when motion is allowed, so content is never stuck hidden.
+// Timings are short and snappy to fit the neo-brutalist look.
+function initMotion() {
+  if (!window.Motion || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const { animate, inView, stagger } = Motion;
+  const ease = [0.22, 1, 0.36, 1];
+  const pop = [0.34, 1.56, 0.64, 1];
+
+  const name = document.getElementById("hero-name");
+  splitWords(name);
+  animate(name, { opacity: [0, 1], scale: [0.9, 1] }, { duration: 0.4, delay: 0.1, ease: pop });
+  animate(name.querySelectorAll("[data-word]"), { y: ["110%", "0%"] }, { duration: 0.6, delay: stagger(0.08, { startDelay: 0.2 }), ease });
+
+  document.querySelectorAll("[data-reveal]").forEach(el => {
+    const delay = el.closest("#beranda") ? 0.3 : 0;
+    inView(el, () => { animate(el, { opacity: [0, 1], y: [20, 0] }, { duration: 0.5, delay, ease }); }, { amount: 0.15 });
+  });
+
+  document.querySelectorAll("[data-stagger]").forEach(el => {
+    inView(el, () => {
+      animate(el.children, { opacity: [0, 1], y: [24, 0], scale: [0.96, 1] }, { duration: 0.45, delay: stagger(0.06), ease: pop })
+        .then(() => el.classList.add("is-in"));
+    }, { amount: 0.1 });
+  });
+
+  document.querySelectorAll("[data-count]").forEach(el => {
+    inView(el, () => {
+      const target = +el.dataset.count;
+      animate(0, target, { duration: 1.2, ease, onUpdate: v => { el.textContent = Math.round(v) + el.dataset.suffix; } });
+    }, { amount: 0.6 });
+  });
+}
+
 document.addEventListener("DOMContentLoaded", function () {
-  // --- Typing ---
-  const nameEl = document.getElementById("typed-name");
-  const cursorEl = document.getElementById("cursor");
-  const fullName = "Indra";
-  let idx = 0;
-  function type() {
-    cursorEl.classList.remove("cursor-hidden");
-    cursorEl.style.animation = "blink 1s step-end infinite";
-    if (idx < fullName.length) {
-      nameEl.textContent += fullName.charAt(idx);
-      idx++;
-      setTimeout(type, 120);
-    } else {
-      cursorEl.classList.add("cursor-hidden");
-      cursorEl.style.animation = "none";
-    }
-  }
-  setTimeout(type, 800);
+  document.getElementById("year").textContent = new Date().getFullYear();
 
-  // --- Profile photo ---
-  const img = new Image();
-  img.onload = function () {
-    document.getElementById("profile-photo").style.backgroundImage = "url(assets/images/profile.jpg)";
-    document.getElementById("profile-photo").style.backgroundSize = "cover";
-    document.getElementById("profile-photo").style.backgroundPosition = "50% 15%";
-    document.getElementById("profile-initials").style.display = "none";
-  };
-  img.src = "assets/images/profile.jpg";
-
-  // --- AOS ---
-  AOS.init({ duration: 800, once: true });
-
-  // --- Apply saved language & theme ---
   applyLang();
   applyTheme();
+  initMotion();
+
+  // Navbar gets a hard shadow once the page scrolls
+  const nav = document.getElementById("navbar");
+  const onScroll = () => nav.classList.toggle("is-scrolled", window.scrollY > 8);
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
 });

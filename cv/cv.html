@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV - Indra Utomo Putra Syarif</title>
+  <meta name="robots" content="noindex" />
+  <!-- Source of the downloadable PDF. Regenerate after editing:
+       msedge --headless --no-pdf-header-footer --virtual-time-budget=8000 --print-to-pdf=assets/CV-Indra-Utomo-Putra-Syarif.pdf cv/cv.html -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    @page { size: A4; margin: 0; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --ink: #111; --muted: #3f3f46; --accent: #e11d48; --yellow: #ffd23f; --blue: #7cc4ff; --green: #7ee2a8; --pink: #ffa6d9; --cream: #fdf6e3; }
+    html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    body { font-family: "Space Grotesk", sans-serif; color: var(--ink); font-size: 9.6pt; line-height: 1.45; background: #e5e5e5; }
+    /* Two fixed A4 pages; content is split by hand so nothing breaks mid-section. Check the PDF after edits: overflow is clipped. */
+    .page { width: 210mm; height: 297mm; overflow: hidden; margin: 0 auto; background: #fff; display: flex; flex-direction: column; break-after: page; }
+    .page:last-child { break-after: auto; }
+    @media screen { .page { margin: 24px auto; box-shadow: 0 4px 24px rgba(0,0,0,.15); } }
+    @media print { body { background: #fff; } }
+    .mini { background: var(--cream); border-bottom: 3px solid var(--ink); padding: 6mm 12mm; display: flex; justify-content: space-between; align-items: baseline; }
+    .mini b { font-family: "Archivo Black", sans-serif; font-size: 14pt; }
+    .mini span { font-weight: 600; font-size: 9pt; }
+
+    /* Page 3: assignment history table */
+    .history { padding: 6mm 12mm 4mm; flex: 1; }
+    .history table { width: 100%; border-collapse: collapse; font-size: 8pt; line-height: 1.2; }
+    .history th { text-align: left; font-size: 7.6pt; text-transform: uppercase; letter-spacing: .05em; border-bottom: 2px solid var(--ink); padding: 0 6px 3px; }
+    .history td { padding: 1.5px 5px; border-bottom: 1px solid #d4d4d8; vertical-align: top; }
+    .history td:first-child { white-space: nowrap; font-weight: 600; width: 24mm; }
+    .history td:last-child { width: 60mm; color: var(--muted); }
+    .history tr.year td { border-bottom: 2px solid var(--ink); padding-top: 4px; }
+    .history tr.year b { font-family: "Archivo Black", sans-serif; font-size: 9.5pt; background: var(--yellow); border: 2px solid var(--ink); padding: 0 6px; }
+    .history .note { font-size: 8pt; color: var(--muted); margin: 4px 0 6px; }
+
+    header { background: var(--cream); border-bottom: 3px solid var(--ink); padding: 8mm 12mm 6mm; display: flex; gap: 8mm; align-items: center; }
+    .photo { width: 34mm; height: 40mm; flex: none; border: 3px solid var(--ink); box-shadow: 4px 4px 0 var(--ink); background: var(--pink) center 18% / cover no-repeat; }
+    .name { font-family: "Archivo Black", sans-serif; font-size: 25pt; line-height: 1.05; }
+    .name span { background: var(--yellow); border: 3px solid var(--ink); padding: 0 6px; display: inline-block; margin-top: 4px; box-shadow: 3px 3px 0 var(--ink); }
+    .role { font-size: 11pt; font-weight: 600; margin: 10px 0 8px; }
+    .contacts { display: flex; flex-wrap: wrap; gap: 5px 8px; font-size: 8.6pt; font-weight: 600; }
+    .contacts a, .contacts span { color: var(--ink); text-decoration: none; border: 2px solid var(--ink); background: #fff; padding: 1px 7px; }
+
+    main { display: grid; grid-template-columns: 62mm 1fr; flex: 1; }
+    aside { border-right: 3px solid var(--ink); padding: 6mm 7mm 6mm 12mm; background: #fafafa; }
+    section.main { padding: 6mm 12mm 6mm 8mm; }
+
+    h2 { font-family: "Archivo Black", sans-serif; font-size: 11pt; letter-spacing: .02em; display: inline-block; border: 2px solid var(--ink); padding: 1px 8px; margin-bottom: 8px; }
+    .block { margin-bottom: 6mm; }
+    .block:last-child { margin-bottom: 0; }
+    h2.y { background: var(--yellow); } h2.b { background: var(--blue); } h2.g { background: var(--green); } h2.p { background: var(--pink); }
+
+    p { color: var(--muted); }
+    .lead { color: var(--ink); font-size: 10pt; }
+    ul { padding-left: 1.05em; }
+    li { margin-bottom: 3px; }
+    li::marker { color: var(--accent); }
+
+    .skill { margin-bottom: 6px; }
+    .skill b { display: block; font-size: 9pt; }
+    .skill span { color: var(--muted); font-size: 8.8pt; }
+
+    /* Key numbers band under the page-1 header (counts come from the assignment history on page 3) */
+    .stats { display: grid; grid-template-columns: repeat(5, 1fr); border-bottom: 3px solid var(--ink); }
+    .stat { padding: 2.5mm 4mm; border-right: 2px solid var(--ink); }
+    .stat:last-child { border-right: 0; }
+    .stat b { font-family: "Archivo Black", sans-serif; font-size: 15pt; display: block; line-height: 1.1; }
+    .stat span { font-size: 7.4pt; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; line-height: 1.25; display: block; }
+
+    .item { border-left: 3px solid var(--ink); padding-left: 10px; margin-bottom: 9px; position: relative; break-inside: avoid; }
+    .item::before { content: ""; position: absolute; left: -7px; top: 4px; width: 9px; height: 9px; background: var(--accent); border: 2px solid var(--ink); }
+    .item-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+    .item-head h3 { font-size: 10.2pt; font-weight: 700; }
+    .when { font-size: 8.4pt; font-weight: 700; white-space: nowrap; background: var(--cream); border: 1.5px solid var(--ink); padding: 0 5px; }
+    .item ul { margin: 3px 0 3px; }
+    .item p { font-size: 9pt; }
+
+    .tag-list { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
+    .tag { border: 1.5px solid var(--ink); padding: 0 6px; font-size: 8.4pt; font-weight: 600; }
+    .sub { font-size: 8.6pt; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; margin: 6px 0 3px; }
+    .portfolio li b { font-weight: 700; color: var(--ink); }
+    .portfolio li { color: var(--muted); }
+    .link { color: var(--accent); font-weight: 700; text-decoration: none; }
+
+    footer { border-top: 3px solid var(--ink); background: var(--ink); color: #fff; font-size: 8pt; padding: 3mm 12mm; display: flex; justify-content: space-between; }
+    footer a { color: var(--yellow); text-decoration: none; font-weight: 700; }
+  </style>
+</head>
+<body>
+<!-- ============ PAGE 1 ============ -->
+<div class="page">
+  <header>
+    <div class="photo" style="background-image: url('../assets/images/profile.jpg')" role="img" aria-label="Foto Indra Utomo Putra Syarif"></div>
+    <div>
+      <h1 class="name"><span style="margin:0 0 6px">Indra</span><br />Utomo Putra Syarif</h1>
+      <p class="role">Staf Palang Merah Indonesia (PMI) Provinsi Sulawesi Selatan<br /><span style="font-weight:500;font-size:9.4pt;color:var(--muted)">Disaster Response · Posko &amp; Camp Management · GIS &amp; Analisis Data</span></p>
+      <div class="contacts">
+        <span>Sulawesi Selatan, Indonesia</span>
+        <a href="tel:+6281241899836">0812-4189-9836</a>
+        <a href="mailto:indrautomoputrasyarif@gmail.com">indrautomoputrasyarif@gmail.com</a>
+        <a href="https://imora.site">imora.site</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="stats">
+    <div class="stat" style="background:var(--yellow)"><b>9+</b><span>Tahun pengalaman</span></div>
+    <div class="stat" style="background:var(--pink)"><b>34</b><span>Penugasan 2020–2026</span></div>
+    <div class="stat" style="background:var(--blue)"><b>6</b><span>Diklat sebagai pengendali</span></div>
+    <div class="stat" style="background:var(--green)"><b>2</b><span>Sertifikasi BNSP</span></div>
+    <div class="stat" style="background:var(--cream)"><b>6+</b><span>Produk data &amp; web</span></div>
+  </div>
+
+  <main>
+    <aside>
+      <div class="block">
+        <h2 class="b">Keterampilan</h2>
+        <div class="skill"><b>Pemetaan &amp; GIS</b><span>QGIS dan JOSM untuk pemetaan wilayah, layanan, dan data spasial kebencanaan</span></div>
+        <div class="skill"><b>Pengumpulan Data Digital</b><span>KoBo Collect untuk asesmen dan monitoring lapangan</span></div>
+        <div class="skill"><b>Visualisasi Data</b><span>Microsoft Power BI untuk dashboard dan ringkasan data operasional</span></div>
+        <div class="skill"><b>Analisis Data</b><span>Mendukung asesmen kebutuhan dan pengambilan keputusan berbasis data</span></div>
+        <div class="skill"><b>Microsoft Office</b><span>Word, Excel, PowerPoint untuk pengolahan data, pelaporan, dan presentasi</span></div>
+        <div class="skill"><b>Desain Grafis</b><span>Adobe Photoshop &amp; Illustrator untuk infografis, materi publikasi, dan visual laporan</span></div>
+        <div class="skill"><b>Web &amp; Pemrograman</b><span>Google Sites, Python, React.js, Node.js, PostgreSQL, Tailwind CSS</span></div>
+      </div>
+    </aside>
+
+    <section class="main">
+      <div class="block">
+        <h2 class="y">Profil Profesional</h2>
+        <p class="lead" style="margin-bottom:5px">Profesional kemanusiaan Palang Merah Indonesia (PMI) Provinsi Sulawesi Selatan dengan pengalaman lebih dari 9 tahun dalam respons bencana, manajemen posko, asesmen kebutuhan, serta distribusi bantuan kemanusiaan. Terlibat aktif dalam operasi tanggap darurat skala kabupaten hingga nasional, meliputi gempa bumi, tsunami, banjir bandang, longsor, kekeringan, serta pandemi COVID-19.</p>
+        <p>Memiliki sertifikasi kompetensi nasional (BNSP) pada skema Operator Posko dan Koordinator Distribusi Bantuan, serta keahlian teknis di bidang pemetaan (GIS), pengelolaan dan analisis data, serta Information Management untuk mendukung pengambilan keputusan operasional berbasis data. Terbiasa bekerja di lingkungan bertekanan tinggi, lintas sektor, dan memegang peran koordinatif di lapangan.</p>
+      </div>
+
+      <div class="block">
+        <h2 class="p">Pengalaman</h2>
+        <div class="item-head" style="margin-bottom:8px"><h3 style="font-size:10.6pt">PMI Provinsi Sulawesi Selatan</h3><span class="when">2015 – Sekarang</span></div>
+        <div class="item">
+          <div class="item-head"><h3>Koordinator Posko</h3><span class="when">2024</span></div>
+          <ul>
+            <li>Respons Kekeringan Provinsi Sulawesi Selatan (2024)</li>
+          </ul>
+          <p>Mengoordinasikan operasional posko, relawan, alur layanan, pengelolaan data, serta pelaporan harian sebagai dasar pengambilan keputusan respons.</p>
+        </div>
+        <div class="item">
+          <div class="item-head"><h3>Tim Asesmen &amp; Distribusi Bantuan</h3><span class="when">2018 – Sekarang</span></div>
+          <p>Melaksanakan asesmen kebutuhan, pengumpulan dan pengolahan data lapangan, serta mendukung distribusi bantuan kemanusiaan di berbagai wilayah terdampak bencana.</p>
+        </div>
+        <div class="item">
+          <div class="item-head"><h3>Pendamping Posko / Petugas Posko</h3><span class="when">2018 – 2025</span></div>
+          <ul>
+            <li>Gempa Bumi, Tsunami, dan Likuifaksi Sulawesi Tengah (2018)</li>
+            <li>Tanggap Darurat Gempa Bumi Sulawesi Barat (2021)</li>
+            <li>Respons Banjir Bandang (Luwu Utara 2020, Luwu 2024/2025, Jeneponto, Palopo)</li>
+            <li>Respons Longsor (Palopo, Angkona) dan Respons COVID-19</li>
+          </ul>
+          <p>Mendukung pengelolaan posko, pencatatan layanan, serta koordinasi operasional di lapangan.</p>
+        </div>
+        <p style="font-size:8.6pt;margin-top:2px">Rincian 34 penugasan 2020–2026 ada di halaman 3.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>Indra Utomo Putra Syarif · CV · 1/3</span>
+    <a href="https://imora.site">imora.site</a>
+  </footer>
+</div>
+
+<!-- ============ PAGE 2 ============ -->
+<div class="page">
+  <div class="mini"><b>Indra</b><span>Staf PMI Provinsi Sulawesi Selatan</span></div>
+
+  <main>
+    <aside>
+      <div class="block">
+        <h2 class="g">Keahlian Utama</h2>
+        <div class="tag-list">
+          <span class="tag">Manajemen Posko &amp; Camp Management</span>
+          <span class="tag">Respons Bencana &amp; Kesiapsiagaan</span>
+          <span class="tag">Asesmen Kebutuhan &amp; Pengumpulan Data</span>
+          <span class="tag">Pemetaan GIS &amp; Analisis Spasial</span>
+          <span class="tag">Information Management &amp; Pelaporan</span>
+          <span class="tag">Pengumpulan Data Digital (KoBo Collect)</span>
+          <span class="tag">Distribusi Bantuan &amp; Logistik</span>
+        </div>
+      </div>
+
+      <div class="block">
+        <h2 class="y">Peran Lain</h2>
+        <div class="skill"><b>Pengendali Diklat &amp; Pelatih</b><span>6 diklat: Pelatihan Dasar KSR (Soppeng, Enrekang, Jeneponto, Palopo, Selayar) dan Pelatihan Operator WASH</span></div>
+        <div class="skill"><b>Narasumber &amp; Fasilitator</b><span>4 kegiatan: program CP3, sosialisasi KoBo Collect, Musda FK KSR PT, pemetaan GCDB</span></div>
+        <div class="skill"><b>Panitia &amp; Monitoring</b><span>Jumbara PMR nasional dan provinsi, Muskab PMI Luwu, pelatihan pelatih (ToT)</span></div>
+      </div>
+
+      <div class="block">
+        <h2 class="b">Pendidikan</h2>
+        <p class="skill"><b>SMA Negeri 5 Kota Palopo</b></p>
+      </div>
+    </aside>
+
+    <section class="main">
+      <div class="block">
+        <div class="item-head"><h2 class="g">Sertifikasi</h2><span class="when">2018 – 2026</span></div>
+        <div class="item">
+          <div class="item-head"><h3>BNSP – Operator Posko Kebencanaan</h3></div>
+          <p>Lembaga Sertifikasi Profesi (LSP) BNPB · Tempat Uji Kompetensi (TUK): PMI Provinsi Bali</p>
+        </div>
+        <div class="item">
+          <div class="item-head"><h3>BNSP – Koordinator Distribusi Bantuan Kemanusiaan</h3></div>
+          <p>Lembaga Sertifikasi Profesi (LSP) PMI · Tempat Uji Kompetensi (TUK): Kota Makassar</p>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="item-head"><h2 class="b">Pelatihan Terpilih</h2><span class="when">2016 – 2026</span></div>
+        <ul>
+          <li>Lokalatih Information Management (IM) Berbasis Skenario – PMI Pusat (2026)</li>
+          <li>Disaster Impact Prediction &amp; Return Period Analysis – PMI Pusat (2024–2025)</li>
+          <li>Lokalatih Pemetaan Sistem Informasi Geografis (GIS) – PMI Pusat (2023)</li>
+          <li>Sensitisasi Literasi Data &amp; Alur Pelaporan Posko PMI – PMI Pusat (2023)</li>
+          <li>Community Engagement and Accountability (CEA) – PMI Pusat (2023)</li>
+          <li>Lokalatih Kehumasan Regional Timur – PMI Pusat (2022)</li>
+          <li>Emergency Areas &amp; Camp Management – Italian Red Cross (2018)</li>
+        </ul>
+        <p class="sub">Pelatihan lainnya</p>
+        <ul>
+          <li>Training OSM – OpenStreetMap Indonesia</li>
+          <li>Pemulasaran Jenazah COVID-19 – ICRC</li>
+          <li>12x Microsoft Learn – Power BI &amp; Data Analytics</li>
+        </ul>
+      </div>
+
+      <div class="block portfolio">
+        <h2 class="y">Portofolio</h2>
+        <ul>
+          <li><b>Dashboard Operasi Kekeringan PMI</b> (2026) – <a class="link" href="https://www.im-pmisulsel.site/">im-pmisulsel.site</a>; memantau 8.000+ kegiatan distribusi air bersih, 43 juta+ liter, dan 2,5 juta+ penerima manfaat di 126 kabupaten/kota (19 provinsi)</li>
+          <li><b>E-Learning IM Cell PMI</b> (2025) – platform belajar Information Management untuk tim posko</li>
+          <li><b>Pemetaan Markas PMI se-Indonesia</b> (2024) – kontribusi OpenStreetMap, dashboard Power BI</li>
+          <li><b>Dashboard Pelatihan PMI Provinsi Sulsel</b> (2023) – monitoring Diklat KSR berbasis Google Sites</li>
+          <li><b>Infografis Layanan Kekeringan Sulsel</b> (2023) – cakupan, personel, dan bantuan operasi</li>
+          <li>Peta layanan respons bencana, infografis statis &amp; dinamis, dan laporan perkembangan layanan kebencanaan</li>
+        </ul>
+        <p style="margin-top:5px">Tautan lengkap: <a class="link" href="https://imora.site/#portofolio">imora.site/#portofolio</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>Indra Utomo Putra Syarif · CV · 2/3</span>
+    <a href="https://imora.site">imora.site</a>
+  </footer>
+</div>
+
+<!-- ============ PAGE 3: assignment history (from "Riwayat penugasan-Indra.docx"), newest first ============ -->
+<div class="page">
+  <div class="mini"><b>Indra</b><span>Staf PMI Provinsi Sulawesi Selatan</span></div>
+
+  <div class="history">
+    <h2 class="p">Riwayat Penugasan</h2>
+    <p class="note">34 penugasan PMI, 2020 – Agustus 2026: respons bencana, monitoring, pelatihan KSR, dan data &amp; informasi.</p>
+    <table>
+      <thead><tr><th>Tanggal</th><th>Penugasan</th><th>Peran</th></tr></thead>
+      <tbody>
+        <tr class="year"><td colspan="3"><b>2026</b></td></tr>
+        <tr><td>26–27 Agu</td><td>Mobilisasi peralatan WASH untuk respons Gempa NTT</td><td>Tenaga Teknis</td></tr>
+        <tr><td>8–12 Jul</td><td>Lomba Patonro Wira dan Madya se-Sulawesi Selatan</td><td>Juri</td></tr>
+        <tr><td>25 Mei – 7 Jun</td><td>Lokalatih Information Management (IM) berbasis skenario</td><td>Peserta</td></tr>
+
+        <tr class="year"><td colspan="3"><b>2025</b></td></tr>
+        <tr><td>6–9 Nov</td><td>Lokalatih penerapan kurikulum 70 jam Pelatihan Dasar KSR</td><td>Panitia</td></tr>
+
+        <tr class="year"><td colspan="3"><b>2024</b></td></tr>
+        <tr><td>15–25 Nov</td><td>Pemetaan kapasitas fisik PMI nasional – Global Crisis Data Bank (GCDB)</td><td>Fasilitator</td></tr>
+        <tr><td>14–19 Nov</td><td>Pelatihan Pelatih (Trainer) PMI Provinsi Sulawesi Selatan</td><td>Panitia</td></tr>
+        <tr><td>11–15 Nov</td><td>Posko Kekeringan Sulawesi Selatan 2024</td><td>Koordinator Data dan Informasi</td></tr>
+
+        <tr class="year"><td colspan="3"><b>2023</b></td></tr>
+        <tr><td>19–27 Nov</td><td>Pelatihan Dasar KSR PMI Unit Markas Kabupaten Selayar</td><td>Observer (Pengendali Diklat) dan Pelatih</td></tr>
+        <tr><td>25–29 Sep</td><td>Orientasi Community Engagement and Accountability (CEA)</td><td>Peserta</td></tr>
+        <tr><td>25–29 Agu</td><td>Sensitisasi literasi data dan alur pelaporan posko PMI dalam kesiapsiagaan dan respons</td><td>Peserta</td></tr>
+        <tr><td>2–10 Jul</td><td>Jumbara PMR Tingkat Nasional IX</td><td>Tim Monitoring</td></tr>
+        <tr><td>11–15 Jun</td><td>Lokalatih SIG</td><td>Peserta</td></tr>
+        <tr><td>12–18 Mei</td><td>Jumpa Bakti Gembira (Jumbara) IX Tingkat Provinsi Sulawesi Selatan</td><td>Panitia</td></tr>
+        <tr><td>13–15 Apr</td><td>Tim Kesehatan Lapangan Liga Futsal Tingkat Provinsi Sulawesi Selatan</td><td>Kru Ambulans</td></tr>
+        <tr><td>26 Feb</td><td>Musyawarah Kabupaten (Muskab) PMI Kabupaten Luwu</td><td>Tim Monitoring</td></tr>
+        <tr><td>18–28 Jan</td><td>Pelatihan Dasar KSR PMI Unit Markas Kota Palopo</td><td>Observer (Pengendali Diklat) dan Pelatih</td></tr>
+
+        <tr class="year"><td colspan="3"><b>2022</b></td></tr>
+        <tr><td>26–29 Des</td><td>Distribusi bantuan korban banjir Kabupaten Wajo</td><td>Petugas Distribusi</td></tr>
+        <tr><td>10–16 Nov</td><td>Monitoring pelaksanaan penanganan COVID-19 di Kabupaten Toraja Utara dan Kota Palopo</td><td>Supervisor</td></tr>
+        <tr><td>24–31 Okt</td><td>Pendidikan dan Pelatihan Dasar KSR PMI Unit Markas Kabupaten Jeneponto</td><td>Observer (Pengendali Diklat) dan Pelatih</td></tr>
+        <tr><td>18–22 Okt</td><td>Monitoring dan asesmen lanjutan operasi kemanusiaan dampak El Niño Provinsi Sulawesi Selatan</td><td>Tim Monitoring / IM</td></tr>
+        <tr><td>10–16 Okt</td><td>Pendidikan dan Pelatihan Dasar KSR PMI Unit Markas Kabupaten Enrekang</td><td>Observer (Pengendali Diklat) dan Pelatih</td></tr>
+        <tr><td>24–30 Sep</td><td>Pelatihan operator produksi air minum dan distribusi (WASH) PMI Provinsi Sulawesi Selatan</td><td>Observer (Pengendali Diklat)</td></tr>
+        <tr><td>22–25 Agu</td><td>Lokalatih Kehumasan Regional Timur – PMI Pusat</td><td>Peserta</td></tr>
+        <tr><td>22 Jul</td><td>Musyawarah Daerah Forum Komunikasi KSR PMI Unit Perguruan Tinggi se-Sulawesi Selatan</td><td>Asisten Fasilitator</td></tr>
+        <tr><td>20 Jul</td><td>Sosialisasi formulir respons pelayanan PMI berbasis KoBo Collect</td><td>Narasumber</td></tr>
+        <tr><td>22–27 Jun</td><td>Survei baseline program CP3</td><td>Petugas IT</td></tr>
+        <tr><td>13 Jun</td><td>Peresmian desa sasaran serta pengukuhan relawan markas dan Komite Desa program CP3</td><td>Narasumber</td></tr>
+
+        <tr class="year"><td colspan="3"><b>2021</b></td></tr>
+        <tr><td>9–21 Des</td><td>Pendidikan dan Pelatihan Dasar KSR PMI Unit Markas Kabupaten Soppeng</td><td>Observer (Pengendali Diklat) dan Pelatih</td></tr>
+        <tr><td>11–13 Nov</td><td>Tim medis lapangan dan layanan ambulans</td><td>Kru Ambulans</td></tr>
+        <tr><td>6 Nov</td><td>Tim medis lapangan dan layanan ambulans</td><td>Kru Ambulans</td></tr>
+        <tr><td>20–26 Okt</td><td>Pelatihan distribusi bantuan PMI Kota Makassar</td><td>Panitia dan Asisten Pelatih</td></tr>
+
+        <tr class="year"><td colspan="3"><b>Lainnya</b> <span style="font-size:7.6pt;color:var(--muted);font-weight:500">tanggal tidak tercatat lengkap</span></td></tr>
+        <tr><td>2024/2025</td><td>Respons banjir bandang Kabupaten Luwu</td><td>Pendamping Posko</td></tr>
+        <tr><td>2021</td><td>Tanggap darurat gempa bumi Sulawesi Barat</td><td>Pendamping Posko</td></tr>
+        <tr><td>2020</td><td>Respons banjir bandang Luwu Utara (Masamba)</td><td>Pendamping Posko</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <footer>
+    <span>Indra Utomo Putra Syarif · CV · 3/3</span>
+    <a href="https://imora.site">imora.site</a>
+  </footer>
+</div>
+</body>
+</html>

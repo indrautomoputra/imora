@@ -2,48 +2,110 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Neo-brutalism: thick ink borders, hard offset shadows, flat pop colors, no blur.
+   Readability first: body text stays on plain surfaces, max ~65ch, no rotated paragraphs. */
 :root {
-  --color-bg: #111111;
-  --color-text: #ffffff;
-  --color-accent: #e11d48;
-  --gray-300: #d1d5db;
-  --gray-400: #9ca3af;
-  --gray-500: #6b7280;
-  --gray-600: #4b5563;
-  --gray-700: #374151;
-  --gray-800: #1f2937;
-  --nav-bg: #111111;
-  --section-alt: #0a0a0a;
-  --footer-bg: #0d0d0d;
-  --card-bg: #1a1a1a;
-  --grad-from: #0f0f0f;
-  --grad-via: #111111;
-  --grad-to: #1a1a1a;
-  --card-grad-from: #1f1f1f;
-  --card-grad-to: #2b2b2b;
-  --tag-bg: rgba(255,255,255,0.1);
-  --hover-bg: rgba(255,255,255,0.05);
+  --bg: #fdf6e3;
+  --fg: #111111;
+  --muted-fg: #3f3f46;
+  --ink: #111111;
+  --surface: #ffffff;
+  --accent: #e11d48;
+  --dot: rgba(17, 17, 17, 0.08);
+  --on-pop: #111111;
+  --pop-yellow: #ffd23f;
+  --pop-blue: #7cc4ff;
+  --pop-green: #7ee2a8;
+  --pop-pink: #ffa6d9;
+  --pop-purple: #b9a6ff;
+  --pop-orange: #ffab70;
 }
 
-[data-theme="light"] {
-  --color-bg: #f5f5f5;
-  --color-text: #1a1a1a;
-  --color-accent: #e11d48;
-  --gray-300: #444444;
-  --gray-400: #666666;
-  --gray-500: #999999;
-  --gray-600: #9ca3af;
-  --gray-700: #d0d0d0;
-  --gray-800: #d0d0d0;
-  --nav-bg: #f5f5f5;
-  --section-alt: #f5f5f5;
-  --footer-bg: #f5f5f5;
-  --card-bg: #ffffff;
-  --grad-from: #f5f5f5;
-  --grad-via: #f5f5f5;
-  --grad-to: #ffffff;
-  --card-grad-from: #ffffff;
-  --card-grad-to: #fafafa;
-  --tag-bg: rgba(0,0,0,0.06);
-  --hover-bg: rgba(0,0,0,0.04);
+[data-theme="dark"] {
+  --bg: #141414;
+  --fg: #f5f5f5;
+  --muted-fg: #d4d4d8;
+  --ink: #f5f5f5;
+  --surface: #1f1f1f;
+  --dot: rgba(245, 245, 245, 0.07);
+}
+
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--fg); }
+section[id] { scroll-margin-top: 5rem; }
+
+a:focus-visible, button:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+@layer components {
+  .nb-card {
+    background: var(--surface);
+    border: 3px solid var(--ink);
+    box-shadow: 6px 6px 0 0 var(--ink);
+  }
+  .nb-hover { transition: transform 0.15s ease, box-shadow 0.15s ease; }
+  .nb-hover:hover { transform: translate(-3px, -3px); box-shadow: 9px 9px 0 0 var(--ink); }
+
+  .nb-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 44px;
+    border: 3px solid var(--ink);
+    box-shadow: 4px 4px 0 0 var(--ink);
+    font-weight: 700;
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+  }
+  .nb-btn:hover { transform: translate(2px, 2px); box-shadow: 2px 2px 0 0 var(--ink); }
+  .nb-btn:active { transform: translate(4px, 4px); box-shadow: none; }
+
+  .nb-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    border: 2px solid var(--ink);
+    background: var(--surface);
+    padding: 0.3rem 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  /* Section kicker: small pop-colored label above each heading */
+  .nb-kicker {
+    display: inline-block;
+    border: 2px solid var(--ink);
+    padding: 0.2rem 0.7rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--on-pop);
+  }
+
+  .nb-highlight {
+    display: inline-block;
+    background: var(--pop-yellow);
+    color: var(--on-pop);
+    border: 3px solid var(--ink);
+    box-shadow: 5px 5px 0 0 var(--ink);
+    padding: 0 0.25em;
+  }
+}
+
+.nb-dots {
+  background-image: radial-gradient(var(--dot) 1.2px, transparent 1.2px);
+  background-size: 22px 22px;
+}
+
+#navbar.is-scrolled { box-shadow: 0 3px 0 0 var(--ink); }
+
+/* Elements that Motion reveals start hidden, but only when JS runs and motion is allowed
+   (the .js class is set in <head>). Once a stagger group has played, re-rendered children show at once. */
+@media (prefers-reduced-motion: no-preference) {
+  .js #hero-name,
+  .js [data-reveal],
+  .js [data-stagger]:not(.is-in) > * { opacity: 0; }
 }
