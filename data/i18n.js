@@ -43,12 +43,13 @@ const en = {
     "12x Microsoft Learn - Power BI & Data Analytics"
   ],
   products: [
-    { name: "PMI Drought Operation Dashboard 2026", desc: "Interactive dashboard for PMI's drought emergency response: 8,000+ activities, 43+ million liters of clean water, and 2.5+ million beneficiaries across 126 districts/cities." },
     { name: "PMI South Sulawesi Training Dashboard", desc: "Google Sites-based dashboard monitoring KSR PMI training across South Sulawesi." },
     { name: "South Sulawesi Drought Service Infographic", desc: "Infographic of South Sulawesi drought operation - coverage, personnel, and aid." },
     { name: "PMI Branch Mapping Across Indonesia", desc: "OpenStreetMap contribution mapping PMI branches throughout Indonesia." },
     { name: "E-Learning IM Cell PMI", desc: "Information Management learning platform for PMI IM Cell team. Practical, field-ready materials." },
-    { name: "Simple Score", desc: "Web-based scoring & loan management app (React, Node.js, PostgreSQL)." }
+    { name: "Simple Score", desc: "Web-based scoring & loan management app (React, Node.js, PostgreSQL)." },
+    { name: "PMI Drought Operation Dashboard 2026", desc: "Interactive dashboard for PMI's drought emergency response: 8,000+ activities, 43+ million liters of clean water, and 2.5+ million beneficiaries across 126 districts/cities." },
+    { name: "Jotly", desc: "Web-based personal workspace for taking notes and organizing work in one place." }
   ],
   types: {
     infografis: "infographic",
